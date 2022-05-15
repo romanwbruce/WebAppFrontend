@@ -14,3 +14,264 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: lex;
+  src: url("/lex.ttf");
+}
+
+@font-face {
+  font-family: bold;
+  src: url("/bold.ttf");
+}
+
+
+@font-face {
+  font-family: monolisa;
+  src: url("/monalisa.ttf");
+}
+
+@font-face {
+  font-family: light;
+  src: url("/light.ttf");
+}
+
+@font-face {
+  font-family: Sans;
+  src: url("/sans.ttf");
+}
+
+.title{
+  text-align: center;
+  padding: 1rem;
+  font-family: lex;
+}
+
+.title p{
+  color: gray;
+  font-family: light;
+}
+
+.parent{
+  display: flex;
+  justify-content: center;
+}
+
+.card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  padding: .5rem;
+  margin: .4rem;
+  max-width: fit-content;
+}
+
+.cardTitle{
+  font-family: lex;
+  text-align: center;
+}
+
+.together{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+
+  background: white;
+  padding: .4rem;
+  border-radius: 15px;
+
+}
+
+.together select{
+  padding: .5rem;
+  outline: none;
+  border: none;
+  font-size: 14px;
+
+  border-radius: 10px;
+}
+
+.together select option{
+  font-size: 14px;
+}
+
+.together input{
+  padding: .5rem;
+  border: none;
+  margin-right: 1rem;
+  background:rgba(92, 92, 92, 0.1);
+
+  border-radius: 10px;
+
+}
+
+.github-deploy{
+  background: #69c142;
+
+  width: 100%;
+  text-align: center;
+  padding: .8rem;
+
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid #58a637;
+  cursor: pointer;
+}
+
+.deploy{
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.textimage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textimage img{
+  width: 26px;
+  margin-right: 1rem;
+}
+
+.features{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature{
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+
+}
+
+.feature h3{
+  font-family: lex;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+
+}
+
+.feature p{
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+.navbar a{
+  font-family: bold;
+  font-size: 26px;
+}
+
+.dashboardBtn{
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: black;
+  font-family: lex;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: .4rem .7rem;
+  cursor: pointer;
+}
+
+.footer{
+  background: black;
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer .footerSection{
+margin-left: auto;
+margin-right: auto;
+}
+
+.footer .footerSection ul{
+  list-style: none;
+}
+
+.footer .footerSection li:first-child{
+  font-family: light;
+  margin-bottom: .5rem;
+}
+
+.logo{
+  font-family: bold;
+  font-size: 18px;
+}
+
+.footer .footerSection li{
+  color: white;
+  list-style-type: none;
+  font-size: 14px;
+}
+
+.dashboardHeader{
+  display: flex;
+  align-items: center;
+}
+.dashboardHeader a{
+  margin-right: 1rem;
+  margin: 1rem;
+}
+
+.logoutBtn{
+  margin-left: auto;
+  padding: .2rem;
+  border: 2px solid black;
+}
+
+.projects{
+  margin: 2rem;
+}
+
+
+.options{
+  display: flex;
+  align-items: center;
+}
+
+.optionsParent{
+  max-width: 500px;
+  border-bottom: 1px solid black;
+}
+
+.options a{
+  margin-right: 2rem;
+  padding: .5rem 0rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.active{
+  border-bottom: 3px solid black;
+}
+
+.project{
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.project a{
+  margin-right: 2rem;
+  font-size: 14px;
+}
+
+.date{
+  color: gray;
+}
