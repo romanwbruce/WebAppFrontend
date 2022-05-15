@@ -20,8 +20,8 @@ export default function (){
             <br/>
             <p>Run command</p>
             <input placeholder="node app.js"></input>
+            
             <br/>
-
             <br/>
             <br/>
             <br/>

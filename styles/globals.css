@@ -133,6 +133,76 @@ input{
   cursor: pointer;
 }
 
+.dropdownOption{
+  margin: .5rem;
+}
+
+/* status indicators */
+
+.running{
+  color: black;
+  padding: .4rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: #69b5493e;
+  border: 1px solid #58a637;
+}
+.running img{
+  margin-right: .5rem;
+}
+
+.online{
+  color: black;
+  padding: .4rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: #1e15ce3e;
+  border: 1px solid #3737a6;
+}
+.online img{
+  margin-right: .5rem;
+}
+
+.err {
+  background: #b91a1a3e;
+  border: 1px solid #a91616;
+  color: rgb(79, 0, 0);
+  padding: .4rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: left;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+.err small{
+  margin-top: .4rem;
+}
+.err img{
+  margin-right: .5rem;
+}
+.static{
+  color: black;
+  padding: .4rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  background: #b9b9b93e;
+  border: 1px solid #9f9f9f;
+  
+  margin-bottom: 1rem;
+}
+.static small{
+  margin-top: .4rem;
+}
+.static img{
+  margin-right: .5rem;
+}
+
+/* end: status indicators */
+
 .deploy{
   display: flex;
   justify-content: center;
@@ -349,4 +419,13 @@ margin-right: auto;
   padding: .4rem .7rem;
   cursor: pointer;
   font-size: 14px;
+}
+
+.manage{
+  display: flex;
+  align-items: center;
+}
+
+.manage a{
+  margin-right: 1rem;
 }
