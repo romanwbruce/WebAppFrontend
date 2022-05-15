@@ -176,6 +176,7 @@ input{
   margin-bottom: 1rem;
   flex-direction: column;
 }
+
 .err small{
   margin-top: .4rem;
 }
@@ -428,4 +429,31 @@ margin-right: auto;
 
 .manage a{
   margin-right: 1rem;
+}
+
+.dropdownOption{
+  width: 100%;
+}
+
+.setting{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.setting a{
+
+}
+
+.value{
+  background:rgba(92, 92, 92, 0.1);
+padding: .5rem;
+}
+
+.return{
+  color: gray;
+}
+
+.lastLogin{
+  margin: 1rem;
 }

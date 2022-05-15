@@ -13,11 +13,16 @@ export default function (){
                 <option>.freeapphosting.co</option>
             </select>
             <p>Choose repo</p>
+            <a className="running"><img width="16px" src="/images/github.png"/> GitHub account: asdasd</a>          
+            <br/>
             <select>
                 <option>mywebapp - master @main</option>
             </select>
+            <div>
+            <br/>
             <input placeholder="Source folder"></input>
             <br/>
+            </div>
             <p>Run command</p>
             <input placeholder="node app.js"></input>
             

@@ -13,13 +13,14 @@ export default function () {
   const { name } = router.query;
   const [tab, setTab] = useState(0);
 
+  
   return (
     <div>
         <DashboardHeader/> 
         
-        <p className="welcome">Welcome back!</p>
 <div className="dashboard">
                 <div className="projects">
+                <a href="../dashboard/home" className="return">Dashboard</a>
                     <h2>{ name } </h2>
                     <div className="optionsParent">
                         <div className="options">

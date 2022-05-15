@@ -4,7 +4,7 @@ export default function(){
     
     return(
         <div className="upgrade">
-            <h1>Upgrade Plan <a className="pill">Coming Soon</a></h1>
+            <h1>Pro Plan <a className="pill">Coming Soon</a></h1>
             <p>Upgrade now to gain access to these features:</p>
             <ul>
                 <li>

@@ -6,7 +6,7 @@ export default function () {
     <div>
         <Navbar></Navbar>
         <div className="title">
-            <h1>Deploy Your Node App For Free</h1>
+            <h1>Deploy Your Node.js App For Free</h1>
             <p>#1 Deploy your node web apps within seconds using GitHub.</p>
         </div>
 
