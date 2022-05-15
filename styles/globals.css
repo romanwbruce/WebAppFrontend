@@ -81,20 +81,34 @@ a {
 
 }
 
-.together select{
+.column{
+  display: flex;
+  flex-direction: column;
+}
+.column input{
+  margin-top: 1rem;
+}
+.pill{
+  padding: .3rem;
+  background: orange;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+select{
   padding: .5rem;
   outline: none;
   border: none;
   font-size: 14px;
-
   border-radius: 10px;
+  margin-right: 1rem;
 }
 
-.together select option{
+select option{
   font-size: 14px;
 }
 
-.together input{
+input{
   padding: .5rem;
   border: none;
   margin-right: 1rem;
@@ -173,22 +187,9 @@ a {
 }
 
 .navbar a{
-  font-family: bold;
-  font-size: 26px;
 }
 
-.dashboardBtn{
-  margin-left: auto;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  background: black;
-  font-family: lex;
-  border-radius: 10px;
-  border: 1px solid black;
-  padding: .4rem .7rem;
-  cursor: pointer;
-}
+
 
 .footer{
   background: black;
@@ -236,10 +237,6 @@ margin-right: auto;
   border: 2px solid black;
 }
 
-.projects{
-  margin: 2rem;
-}
-
 
 .options{
   display: flex;
@@ -247,7 +244,6 @@ margin-right: auto;
 }
 
 .optionsParent{
-  max-width: 500px;
   border-bottom: 1px solid black;
 }
 
@@ -274,4 +270,83 @@ margin-right: auto;
 
 .date{
   color: gray;
+}
+
+.upgrade{
+  border-radius: 15px;
+  padding: 1rem;
+  border: 2px solid black;
+  margin: 2rem;
+
+  background-image: url("/images/stars.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: bottom right;
+
+}
+
+.upgrade ul{
+  list-style: none;
+}
+
+.upgrade li{
+  display: flex;
+  align-items: center;
+}
+
+.upgrade li img{
+  margin-right: .5rem;
+}
+.dashboard{
+  display: flex;
+  align-items: flex-start;
+
+  margin-left: 10%;
+}
+
+.projects{
+  margin: 2rem;
+  width: 600px;
+}
+
+.marginleft{
+  margin-left: auto;
+}
+
+.welcome{
+  padding: .5rem;
+  background: rgba(31, 166, 31, 0.841);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 800px){
+  .dashboard{
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 0;
+  }
+
+  .projects{
+    width: 90%;
+  }
+}
+
+
+.dashboardBtn{
+  margin-left: auto;
+  font-weight: bold;
+  color: white;
+  background: black;
+  font-family: lex;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: .4rem .7rem;
+  cursor: pointer;
+  font-size: 14px;
 }
