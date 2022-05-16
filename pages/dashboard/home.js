@@ -51,7 +51,7 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github }
         <p className="welcome">Welcome back, {signer}</p>
         {
             !isGithubAuthorized &&
-            <a className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
+            <a href={"localhost:3030/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
         }
 <div className="dashboard">
                 <div className="projects">
@@ -72,12 +72,12 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github }
 
                     {
                         isGithubAuthorized && 
-                         tab == 1 &&  <NewProjectTab/> 
+                         tab == 1 &&  <NewProjectTab gh={github} /> 
                     }
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>
                             <br/>
-                            <a class="err">Use must link github before deploying an app.</a>
+                            <a href={"localhost:3030/api/github/auth?username="+signer} class="err">Use must link github before deploying an app.</a>
                         </div>
                     }
 
