@@ -90,7 +90,7 @@ a {
 }
 .pill{
   padding: .3rem;
-  background: orange;
+  background: rgba(82, 64, 31, 0.618);
   font-size: 12px;
   border-radius: 10px;
 }
@@ -199,6 +199,40 @@ input{
   margin-top: .4rem;
 }
 .static img{
+  margin-right: .5rem;
+}
+
+._dropdown{
+  position: absolute;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  background: #ffffffe4;
+  border: 1px solid #9f9f9f;
+}
+
+._dropdown li {
+  list-style-type: none;
+}
+
+.error{
+  color: black;
+  padding: .4rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  background: #b91a1a3e;
+  border: 1px solid #a91616;
+  color: rgb(79, 0, 0);
+  
+  margin-bottom: 1rem;
+}
+.error small{
+  margin-top: .4rem;
+}
+.error img{
   margin-right: .5rem;
 }
 
@@ -348,11 +382,9 @@ margin-right: auto;
   padding: 1rem;
   border: 2px solid black;
   margin: 2rem;
-
-  background-image: url("/images/stars.png");
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: bottom right;
+  color: white;
+  background-image: url("/images/background.jpg");
+  background-size: contain;
 
 }
 
@@ -386,10 +418,9 @@ margin-right: auto;
 
 .welcome{
   padding: .5rem;
-  background: rgba(31, 166, 31, 0.841);
+  background: #69b5493e;
+  border: 1px solid #58a637;
   text-align: center;
-  font-weight: bold;
-  color: white;
   width: 100%;
 }
 
@@ -427,8 +458,33 @@ margin-right: auto;
   align-items: center;
 }
 
-.manage a{
-  margin-right: 1rem;
+.gray-button{
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: 200ms;
+    margin-right: 1rem;
+}
+
+.gray-button:hover{
+  padding: 5px 12px;
 }
 
 .dropdownOption{
@@ -456,4 +512,39 @@ padding: .5rem;
 
 .lastLogin{
   margin: 1rem;
+}
+
+.barren{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  border-radius: 15px;
+  background: #69b5493e;
+  border: 1px solid #58a637;
+}
+
+.barren img{
+  margin-right: 1rem;
+}
+
+
+
+strong{
+  margin: 0;
+}
+
+.static p{
+    margin: .2rem;
+    margin-left: 0;
+}
+
+.err p{
+  margin: .2rem;
+  margin-left: 0;
+}
+
+a{
+  cursor: pointer;
 }

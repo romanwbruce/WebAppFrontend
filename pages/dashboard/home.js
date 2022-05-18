@@ -15,11 +15,19 @@ export async function getServerSideProps({ req, res }) {
 
     var isGithubAuthorized = false;
     var github;
+    var apps;
 
     await axios.get("http://localhost:3030/api/github/user?username="+req.cookies.signer).then(response =>{
        isGithubAuthorized = response.data.status;
        github = response.data;
     });
+
+
+    await axios.get("http://localhost:3030/api/apps/user?user="+req.cookies.signer).then(response2 =>{
+        apps = response2.data;
+        console.log(apps);
+     });
+
 
 
     if (token == null || token == undefined) {
@@ -36,13 +44,20 @@ export async function getServerSideProps({ req, res }) {
     }
     let signer = req.cookies.signer;
     //Load user profile and send it along.
-    return { props: { token, signedOn, signer, isGithubAuthorized, github } }
+    return { props: { token, signedOn, signer, isGithubAuthorized, github, apps } }
 }
 
-export default function ({ token, signedOn, signer, isGithubAuthorized, github }){
+export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps }){
     const [tab, setTab] = useState(0);
+    const [empty, setEmpty] = useState(false);
+
     var moment = require('moment'); 
-    console.log(github);
+    
+    useEffect( ()=>{
+        if(apps.data.length==0){
+            setEmpty(true);
+        }
+    },[]);
 
     return (
         <div>
@@ -58,7 +73,7 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github }
                     <h2>My Apps</h2>
                     <div className="optionsParent">
                         <div className="options">
-                            <a onClick={ ()=> setTab(0) } className={ tab == 0 ? 'active' : ''}>Active</a>
+                            <a onClick={ ()=> setTab(0) } className={ tab == 0 ? 'active' : ''}>Apps</a>
                             <a onClick={ ()=> setTab(1) } className={ tab == 1 ? 'active' : ''}>New App</a>
                             {
                                  !isGithubAuthorized &&
@@ -68,11 +83,11 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github }
                         </div>
                     </div>
 
-                    { tab == 0 &&  <ProjectsTab/> }
+                    { tab == 0 &&  <ProjectsTab empty={empty} apps={apps}/> }
 
                     {
                         isGithubAuthorized && 
-                         tab == 1 &&  <NewProjectTab gh={github} /> 
+                         tab == 1 &&  <NewProjectTab client={signer} gh={github} /> 
                     }
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>

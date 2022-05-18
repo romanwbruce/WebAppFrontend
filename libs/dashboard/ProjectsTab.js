@@ -1,24 +1,34 @@
 
 
-export default function (){
+export default function ({empty, apps}){
+    var moment = require('moment'); 
+
     return (
         <div className="dropdownOption">
-            
-                            <div className="project">
-                                <a>Demo1</a>
-                                <a className="date">Created 1/1/2022</a>
-                                <a>VIEW</a>
-                            </div>
-                            <div className="project">
-                                <a>Demo1</a>
-                                <a className="date">Created 1/1/2022</a>
-                                <a>VIEW</a>
-                            </div>
-                            <div className="project">
-                                <a>Demo1</a>
-                                <a className="date">Created 1/1/2022</a>
-                                <a>VIEW</a>
-                            </div>
+                            {
+                                empty &&
+                                <div>
+                                    <div className="barren">
+                                        <img width='64px' src='../images/galaxy.png' />
+                                        <h2>No apps. Create one!</h2>
+                                    </div>
+                                </div>
+                            }
+                            {
+                                !empty &&
+                                <div>
+                                    {apps.data.map( (i, v) =>(
+                                        <div className="project">
+                                              <a>{i.appName}</a>
+                                              <a className="date">Deployed { moment.unix( i.lastDeployed/1000).fromNow()}</a>
+                                              <a className="gray-button" href={"/app/"+i.appID}>VIEW</a>
+                                          </div>
+                                    ))}
+
+                                 
+                                  
+                                </div>
+                            }   
 
 
         </div>
