@@ -190,7 +190,7 @@ input{
   display: flex;
   align-items: left;
   flex-direction: column;
-  background: #b9b9b93e;
+  background: #d2d2d20f;
   border: 1px solid #9f9f9f;
   
   margin-bottom: 1rem;
@@ -200,6 +200,24 @@ input{
 }
 .static img{
   margin-right: .5rem;
+}
+
+.whoopsies{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #b91a1a3e;
+  border: 1px solid #a91616;
+  color: rgb(79, 0, 0);
+  padding: 2rem;
+}
+.whoopsies img{
+  margin-right: 1rem;
+  width: 200px;
+}
+.whoopsies a{
+  font-size: 26px;
+  font-weight: bold;
 }
 
 ._dropdown{
@@ -364,8 +382,8 @@ margin-right: auto;
 }
 
 .project{
-  margin: 1rem;
-  margin-left: 0;
+  width: 100%;
+  margin: .5rem;
 }
 
 .project a{
@@ -547,4 +565,104 @@ strong{
 
 a{
   cursor: pointer;
+}
+
+.admin{
+  text-align: center;
+  margin: 2rem;
+}
+
+
+.adminWrapper{
+  display: flex;
+  align-items: flex-start;
+}
+
+.twirl img{
+  transition: 500ms;
+}
+.twirl img:hover{
+  transform: rotate(360deg);
+}
+.adminDashboard{
+  margin-left: auto;
+}
+
+.adminNotifications{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.console{
+  background:rgba(0, 0, 0, 0.942);
+  padding: 1rem;
+}
+
+.console a{
+  color: white;
+  font-size: 13px;
+  font-family: monolisa;
+}
+
+.console .commandInput{
+  margin-top: 1rem;
+  border-radius: 0;
+  color: white;
+  font-family: monolisa;
+  width: 100%;
+  background:rgba(0, 0, 0, 0.942);
+  border-left: 2px solid white;
+}
+
+.dangerzone{
+  padding: 0;
+  margin: 0;
+
+  margin-top: -1rem;
+  background: red;
+  width: fit-content;
+  padding: .2rem;
+
+  background: #b91a1a;
+  border: 1px solid #a91616;
+  border-radius: 2px;
+  font-size: 13px;
+  color: white;
+}
+
+.usages{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usage {
+  margin: .3rem;
+  padding: .4rem;
+
+  border: 1px solid #58a637;
+}
+
+.usage pre{
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.usage a{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.usageLabel{
+  margin-top: -1rem;
+  font-size: 12px;
+  font-weight: bold;
+
+  padding: .2rem;
+  background: #69b549;
+  border: 1px solid #58a637;
+  border-radius: 2px;
+  font-size: 13px;
+  color: white;
 }

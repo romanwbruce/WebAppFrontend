@@ -15,7 +15,7 @@ export default function ({empty, apps}){
                                 </div>
                             }
                             {
-                                !empty &&
+                                !empty && apps!=null &&
                                 <div>
                                     {apps.data.map( (i, v) =>(
                                         <div className="project">

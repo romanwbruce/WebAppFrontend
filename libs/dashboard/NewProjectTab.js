@@ -67,12 +67,15 @@ export default function ({client, gh}){
         });
 
         console.log('Is domain taken? '+isDomainTaken)
-        if(!isDomainTaken)
+        if(!isDomainTaken){
             launch();
+        }else{
+            console.log('Domain is taken, please choose another one.');
+        }
     }
     
     async function launch(){
-        await axios.get('http://localhost:3030/api/apps/create'
+        axios.get('http://localhost:3030/api/apps/create'
             +'?owner='+client+''
             +'&appName='+name+''
             +'&domain='+domain+''
@@ -81,8 +84,8 @@ export default function ({client, gh}){
             +'&repo='+repo+''
             +'&runCommand='+runCMD+''
             ).then(resp => {
-            console.log(resp.data);
-            setStatus(resp.data.statusMessage);
+                console.log(resp.data);
+                setStatus(resp.data.statusMessage);
         });
     }
 

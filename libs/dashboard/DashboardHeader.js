@@ -16,7 +16,7 @@ export default function (){
         <div className="dashboardHeader">
            <a href="../" className="logo">freeapphosting.co</a>
            <a>Help</a>
-
+           <a>Status</a>
            <a onClick={logout()} className="dashboardBtn">Logout</a>
         </div>
 

@@ -27,7 +27,7 @@ export default function (){
                     <a key={v} className={ !i.error ? 'static' : 'err'}>
                         <p style={{fontWeight: 'bold'}}>{i.title}</p>
                         <p style={{fontSize: '12px'}}>{i.body}</p>
-                        <small>{ moment.unix( i.date/1000).fromNow()}</small>
+                        <small style={{fontSize: '10px'}}>{ moment.unix( i.date/1000).fromNow()}</small>
                     </a>
                     }
                     </div>

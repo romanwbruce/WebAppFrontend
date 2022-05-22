@@ -4,6 +4,8 @@ import DashboardFooter from '../../libs/dashboard/DashboardFooter';
 import Upgrade from '../../libs/Upgrade';
 import ProjectsTab from '../../libs/dashboard/ProjectsTab';
 import NewProjectTab from '../../libs/dashboard/NewProjectTab';
+import Whoops from '../../libs/Whoops';
+
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 const axios = require('axios');
@@ -14,19 +16,30 @@ export async function getServerSideProps({ req, res }) {
     var signedOn = req.cookies.signedOn;
 
     var isGithubAuthorized = false;
-    var github;
-    var apps;
+    var github = null;
+    var apps = null;
+    var error = true;
+    var error_code = "Could not connect to backend server API.";
 
     await axios.get("http://localhost:3030/api/github/user?username="+req.cookies.signer).then(response =>{
        isGithubAuthorized = response.data.status;
        github = response.data;
+       error = false;
+        
+    }).catch(function (error) {
+        error  = true;
     });
 
 
     await axios.get("http://localhost:3030/api/apps/user?user="+req.cookies.signer).then(response2 =>{
+    
         apps = response2.data;
         console.log(apps);
-     });
+
+        error = false;
+     }).catch(function (error) {
+        error  = true;
+    });
 
 
 
@@ -43,21 +56,38 @@ export async function getServerSideProps({ req, res }) {
         }
     }
     let signer = req.cookies.signer;
+
+    console.log(error);
+    if(error){
+        return { props: {error, error_code} };
+    }
     //Load user profile and send it along.
-    return { props: { token, signedOn, signer, isGithubAuthorized, github, apps } }
+    return { props: { token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code } }
 }
 
-export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps }){
+export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code }){
     const [tab, setTab] = useState(0);
     const [empty, setEmpty] = useState(false);
 
     var moment = require('moment'); 
     
     useEffect( ()=>{
-        if(apps.data.length==0){
-            setEmpty(true);
+        if(!error){
+            if(apps.data.length==0){
+                setEmpty(true);
+            }
         }
     },[]);
+
+    if(error){
+        return (
+            <div>
+                <DashboardHeader></DashboardHeader>
+                <Whoops known_error={error_code}></Whoops>
+                <DashboardFooter></DashboardFooter>
+            </div>
+        )
+    }else{
 
     return (
         <div>
@@ -83,10 +113,10 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github, 
                         </div>
                     </div>
 
-                    { tab == 0 &&  <ProjectsTab empty={empty} apps={apps}/> }
+                    { tab == 0 && !error &&  <ProjectsTab empty={empty} apps={apps}/> }
 
                     {
-                        isGithubAuthorized && 
+                        isGithubAuthorized && !error && 
                          tab == 1 &&  <NewProjectTab client={signer} gh={github} /> 
                     }
                     {   !isGithubAuthorized && tab ==1 &&
@@ -102,5 +132,7 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github, 
                 <small className="lastLogin">Last login: { moment.unix(signedOn/1000).fromNow() }</small>
             <DashboardFooter></DashboardFooter>
         </div>
+    
     )
+                }
 }
