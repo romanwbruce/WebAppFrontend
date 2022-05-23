@@ -37,7 +37,7 @@ export async function getServerSideProps({ req, res }) {
 }
 
 
-export default function Admin{ token, signedOn, signer }){
+export default function Admin({ token, signedOn, signer }){
     var moment = require('moment');
 
     return (
