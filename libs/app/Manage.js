@@ -55,7 +55,7 @@ export default function ({ setRealName, auth }){
     useEffect( ()=>{
         console.log('appid: '+name);
         setSigner(Cookies.get('signer'));
-        axios.get("http://localhost:3030/api/apps/activity?appID="+name, auth).then(response2 =>{
+        axios.get("http://159.223.194.251/api/apps/activity?appID="+name, auth).then(response2 =>{
             if(response2.data.status != false){
                 setActivity(response2.data);
                 setState(response2.data.health.state);
@@ -68,7 +68,7 @@ export default function ({ setRealName, auth }){
 
     function rebuild(){
         console.log('rebuilding...');
-        axios.post("http://localhost:3030/api/apps/functions/rebuild?appID="+name+"&owner="+Cookies.get('signer'), {}, auth).then(_data =>{
+        axios.post("http://159.223.194.251/api/apps/functions/rebuild?appID="+name+"&owner="+Cookies.get('signer'), {}, auth).then(_data =>{
           console.log(_data);
          });
          setLoading(true);
@@ -81,7 +81,7 @@ export default function ({ setRealName, auth }){
     function restart(){
         setLoading(true);
         console.log('restarting...');
-        axios.post("http://localhost:3030/api/apps/functions/restart?appID="+name).then(_data =>{
+        axios.post("http://159.223.194.251/api/apps/functions/restart?appID="+name).then(_data =>{
           console.log(_data);
          });
     }
@@ -89,7 +89,7 @@ export default function ({ setRealName, auth }){
     function stop(){
         setLoading(true);
         console.log('stopping...');
-        axios.post("http://localhost:3030/api/apps/functions/stop?appID="+name).then(_data =>{
+        axios.post("http://159.223.194.251/api/apps/functions/stop?appID="+name).then(_data =>{
           console.log(_data);
          });
     }

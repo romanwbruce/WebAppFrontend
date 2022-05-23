@@ -27,7 +27,7 @@ export async function getServerSideProps({ req, res }) {
         }
     }
 
-    await axios.get("http://localhost:3030/api/github/user?username="+req.cookies.signer, headers).then(response =>{
+    await axios.get("http://159.223.194.251/api/github/user?username="+req.cookies.signer, headers).then(response =>{
        isGithubAuthorized = response.data.status;
        github = response.data;
        error = false;
@@ -128,7 +128,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>
                             <br/>
-                            <a href={"localhost:3030/api/github/auth?username="+signer} className="err">Use must link github before deploying an app.</a>
+                            <a href={"http://159.223.194.251/api/github/auth?username="+signer} className="err">Use must link github before deploying an app.</a>
                         </div>
                     }
 

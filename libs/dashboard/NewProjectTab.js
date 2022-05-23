@@ -60,7 +60,7 @@ export default function ({client, gh, auth}){
         console.log('Deploying')
         var isDomainTaken = true;
         console.log(auth);
-        await axios.get('http://localhost:3030/api/apps/check/domain?domain='+domain, auth).then(resp => {
+        await axios.get('http://159.223.194.251/api/apps/check/domain?domain='+domain, auth).then(resp => {
             console.log(resp);
             setStatus(resp.data.statusMessage);
             isDomainTaken = resp.data.status; 
@@ -75,7 +75,7 @@ export default function ({client, gh, auth}){
     }
     
     async function launch(){
-        axios.get('http://localhost:3030/api/apps/create'
+        axios.get('http://159.223.194.251/api/apps/create'
             +'?owner='+client+''
             +'&appName='+name+''
             +'&domain='+domain+''
