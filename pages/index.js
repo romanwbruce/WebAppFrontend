@@ -1,7 +1,7 @@
 import Navbar from '../libs/Navbar';
 import Footer from '../libs/Footer';
 
-export default function () {
+export default function Index() {
   return (
     <div>
         <Navbar></Navbar>

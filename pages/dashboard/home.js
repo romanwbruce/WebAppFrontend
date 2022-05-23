@@ -71,7 +71,7 @@ export async function getServerSideProps({ req, res }) {
     return { props: { token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code, headers} }
 }
 
-export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code, headers }){
+export default function Home({ token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code, headers }){
     const [tab, setTab] = useState(0);
     const [empty, setEmpty] = useState(false);
 

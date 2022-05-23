@@ -27,7 +27,7 @@ export async function getServerSideProps({ req, res }) {
   return { props: { headers: headers} }
 }
 
-export default function ({headers}) {
+export default function App({headers}) {
   const router = useRouter()
 
   const [tab, setTab] = useState(0);

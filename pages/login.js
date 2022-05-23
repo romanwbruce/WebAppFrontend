@@ -19,7 +19,7 @@ export async function getServerSideProps( {req, res} ) {
   return { props: { } }
 }
 
-export default function (){
+export default function Login(){
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState('Please login');
