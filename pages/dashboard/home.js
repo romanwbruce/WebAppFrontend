@@ -128,7 +128,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>
                             <br/>
-                            <a href={"localhost:3030/api/github/auth?username="+signer} class="err">Use must link github before deploying an app.</a>
+                            <a href={"localhost:3030/api/github/auth?username="+signer} className="err">Use must link github before deploying an app.</a>
                         </div>
                     }
 
