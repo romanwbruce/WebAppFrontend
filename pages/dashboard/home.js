@@ -5,7 +5,7 @@ import Upgrade from '../../libs/Upgrade';
 import ProjectsTab from '../../libs/dashboard/ProjectsTab';
 import NewProjectTab from '../../libs/dashboard/NewProjectTab';
 import Whoops from '../../libs/Whoops';
-
+import News from "../../libs/News";
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 const axios = require('axios');
@@ -14,14 +14,20 @@ import { useEffect, useState } from 'react';
 export async function getServerSideProps({ req, res }) {
     var token = req.cookies.clientToken;
     var signedOn = req.cookies.signedOn;
-
     var isGithubAuthorized = false;
     var github = null;
     var apps = null;
     var error = true;
     var error_code = "Could not connect to backend server API.";
 
-    await axios.get("http://localhost:3030/api/github/user?username="+req.cookies.signer).then(response =>{
+    let headers = {
+        headers: {
+            '-auth-signer': req.cookies.signer,
+            '-auth-signer-token': token
+        }
+    }
+
+    await axios.get("http://localhost:3030/api/github/user?username="+req.cookies.signer, headers).then(response =>{
        isGithubAuthorized = response.data.status;
        github = response.data;
        error = false;
@@ -31,7 +37,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
 
-    await axios.get("http://localhost:3030/api/apps/user?user="+req.cookies.signer).then(response2 =>{
+    await axios.get("http://localhost:3030/api/apps/user?user="+req.cookies.signer, headers).then(response2 =>{
     
         apps = response2.data;
         console.log(apps);
@@ -62,10 +68,10 @@ export async function getServerSideProps({ req, res }) {
         return { props: {error, error_code} };
     }
     //Load user profile and send it along.
-    return { props: { token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code } }
+    return { props: { token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code, headers} }
 }
 
-export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code }){
+export default function ({ token, signedOn, signer, isGithubAuthorized, github, apps, error, error_code, headers }){
     const [tab, setTab] = useState(0);
     const [empty, setEmpty] = useState(false);
 
@@ -117,7 +123,7 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github, 
 
                     {
                         isGithubAuthorized && !error && 
-                         tab == 1 &&  <NewProjectTab client={signer} gh={github} /> 
+                         tab == 1 &&  <NewProjectTab client={signer} gh={github} auth={headers}/> 
                     }
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>
@@ -127,7 +133,10 @@ export default function ({ token, signedOn, signer, isGithubAuthorized, github, 
                     }
 
                 </div>  
-                <Upgrade/>
+                <div>
+                    <Upgrade/>
+                    <News/>
+                </div>
                 </div>
                 <small className="lastLogin">Last login: { moment.unix(signedOn/1000).fromNow() }</small>
             <DashboardFooter></DashboardFooter>

@@ -3,7 +3,7 @@ const axios = require('axios');
 import { useRouter } from 'next/router'
 
 
-export default function (){
+export default function ({auth}){
     const [history, setHistory] = useState([]);
     const router = useRouter()
     const { name } = router.query;
@@ -11,7 +11,7 @@ export default function (){
 
     useEffect( ()=>{
         console.log('appid: '+name);
-        axios.get("http://localhost:3030/api/apps/history?appID="+name).then(response2 =>{
+        axios.get("http://localhost:3030/api/apps/history?appID="+name, auth).then(response2 =>{
            setHistory(response2.data.data.reverse());
            console.log(response2.data);
          });

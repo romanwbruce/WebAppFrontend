@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 const axios = require('axios');
 import { useRouter } from 'next/router'
 
-export default function (){
+export default function ({auth}){
     const [settings, setSettings] = useState([]);
     const router = useRouter()
     const { name } = router.query;
@@ -10,7 +10,7 @@ export default function (){
 
     useEffect( ()=>{
         console.log('appid: '+name);
-        axios.get("http://localhost:3030/api/apps/settings?appID="+name).then(response2 =>{
+        axios.get("http://localhost:3030/api/apps/settings?appID="+name, auth).then(response2 =>{
             setSettings(response2.data.data);
             console.log(settings);
          });

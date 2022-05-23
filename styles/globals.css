@@ -406,6 +406,17 @@ margin-right: auto;
 
 }
 
+.news{
+  border-radius: 15px;
+  padding: 1rem;
+  border: 2px solid black;
+  margin: 2rem;
+  color: white;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+
+}
+
 .upgrade ul{
   list-style: none;
 }
@@ -611,7 +622,7 @@ a{
   font-family: monolisa;
   width: 100%;
   background:rgba(0, 0, 0, 0.942);
-  border-left: 2px solid white;
+  border: 1px solid white;
 }
 
 .dangerzone{
@@ -634,13 +645,14 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: max-content;
 }
 
 .usage {
   margin: .3rem;
   padding: .4rem;
-
-  border: 1px solid #58a637;
+  min-width: 150px;
+  border: 1px solid #303030;
 }
 
 .usage pre{
@@ -655,14 +667,43 @@ a{
 }
 
 .usageLabel{
+  margin: .4rem;
   margin-top: -1rem;
   font-size: 12px;
   font-weight: bold;
-
+  background: white;
   padding: .2rem;
-  background: #69b549;
-  border: 1px solid #58a637;
   border-radius: 2px;
   font-size: 13px;
-  color: white;
+  color: black;
+}
+
+.spinner_{
+  margin: 10rem;
+}
+
+.spinner_ a{
+  font-size: 16px;
+  margin-right: 4rem;
+  font-family: monolisa;
+}
+
+.commandline{
+  display: flex;
+  align-items: flex-end;
+}
+.sendCommand{
+  border: 1px solid white;
+  padding: .5rem;
+}
+
+.sendCommand:hover{
+  color: black;
+  background: white;
+}
+
+.meme{
+    margin-top: 4rem;
+    display: grid;
+    place-items: center;
 }

@@ -9,7 +9,6 @@ export default function ({empty, apps}){
                                 empty &&
                                 <div>
                                     <div className="barren">
-                                        <img width='64px' src='../images/galaxy.png' />
                                         <h2>No apps. Create one!</h2>
                                     </div>
                                 </div>

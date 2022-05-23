@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
                 })}
             </select>
 */
-export default function ({client, gh}){
+export default function ({client, gh, auth}){
 
     const [name, setName] = useState('');
     const [domain, setDomain] = useState('');
@@ -59,8 +59,8 @@ export default function ({client, gh}){
     async function deploy(){
         console.log('Deploying')
         var isDomainTaken = true;
-
-        await axios.get('http://localhost:3030/api/apps/check/domain?domain='+domain).then(resp => {
+        console.log(auth);
+        await axios.get('http://localhost:3030/api/apps/check/domain?domain='+domain, auth).then(resp => {
             console.log(resp);
             setStatus(resp.data.statusMessage);
             isDomainTaken = resp.data.status; 
@@ -83,7 +83,7 @@ export default function ({client, gh}){
             +'&port='+port+''
             +'&repo='+repo+''
             +'&runCommand='+runCMD+''
-            ).then(resp => {
+            , auth).then(resp => {
                 console.log(resp.data);
                 setStatus(resp.data.statusMessage);
         });
@@ -125,7 +125,8 @@ export default function ({client, gh}){
                     }
                 })}
                 <br/>
-             
+                <small>Only showing public repos, you can still use private repos.</small>
+                <br/>
                 <a className="gray-button" onClick={disable}>Close</a>
                 
                 </ul>
