@@ -37,7 +37,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
 
-    await axios.get("http://localhost:3030/api/apps/user?user="+req.cookies.signer, headers).then(response2 =>{
+    await axios.get("http://159.223.194.251/api/apps/user?user="+req.cookies.signer, headers).then(response2 =>{
     
         apps = response2.data;
         console.log(apps);
@@ -102,7 +102,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
         <p className="welcome">Welcome back, {signer}</p>
         {
             !isGithubAuthorized &&
-            <a href={"localhost:3030/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
+            <a href={"http://159.223.194.251/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
         }
 <div className="dashboard">
                 <div className="projects">
