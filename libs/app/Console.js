@@ -20,7 +20,7 @@ export default function ({auth}){
 
     ///api/apps/functions/run
     function run_command(){
-      axios.post("http://159.223.194.251/api/apps/functions/run?appID="+name+"&owner="+Cookies.get('signer')+"&command="+cmd, auth).then(response2 =>{
+      axios.post("api.freeapphosting.net/api/apps/functions/run?appID="+name+"&owner="+Cookies.get('signer')+"&command="+cmd, auth).then(response2 =>{
         const __split = response2.data.command_result.split(/\r?\n/);  
 
 

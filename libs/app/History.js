@@ -11,7 +11,7 @@ export default function ({auth}){
 
     useEffect( ()=>{
         console.log('appid: '+name);
-        axios.get("http://159.223.194.251/api/apps/history?appID="+name, auth).then(response2 =>{
+        axios.get("api.freeapphosting.net/api/apps/history?appID="+name, auth).then(response2 =>{
            setHistory(response2.data.data.reverse());
            console.log(response2.data);
          });
