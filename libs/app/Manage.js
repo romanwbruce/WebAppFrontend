@@ -115,16 +115,16 @@ export default function ({ setRealName, auth }){
                     <div className="usages">
 
                 <div className="usage">
+                     <pre>{activity.cpuUsage}</pre>
                     <p className="usageLabel">CPU Usage</p>
-                    <pre>{activity.cpuUsage}</pre>
                 </div>
                 <div className="usage">
-                <p className="usageLabel">Memory Usage</p>
-                    <pre>{activity.memUsage}</pre>
+                <pre>{activity.memUsage}</pre>
+                    <p className="usageLabel">Memory Usage</p>
                 </div>
                 <div className="usage">
-                <p className="usageLabel">Network Usage</p>
                     <pre>{activity.networkUsage}</pre>
+                    <p className="usageLabel">Network Usage</p>
                 </div>
                     </div>
                 }

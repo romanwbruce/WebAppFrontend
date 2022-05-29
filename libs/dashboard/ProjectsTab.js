@@ -17,10 +17,13 @@ export default function ({empty, apps}){
                                 !empty && apps!=null &&
                                 <div>
                                     {apps.data.map( (i, v) =>(
-                                        <div className="project">
-                                              <a>{i.appName}</a>
+                                        <div key={v} className="project">
+                                              <a href={"/app/"+i.appID}>{i.appName}</a>
                                               <a className="date">Deployed { moment.unix( i.lastDeployed/1000).fromNow()}</a>
-                                              <a className="gray-button" href={"/app/"+i.appID}>VIEW</a>
+                                              <div className='repo'>
+                                                <img src="/images/file-storage.png"></img>
+                                                <span>{i.repo}</span>
+                                            </div>
                                           </div>
                                     ))}
 

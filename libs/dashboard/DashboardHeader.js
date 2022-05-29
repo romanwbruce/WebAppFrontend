@@ -14,9 +14,9 @@ export default function (){
     }
     return (
         <div className="dashboardHeader">
-           <a href="../" className="logo">freeapphosting.co</a>
-           <a>Help</a>
-           <a>Status</a>
+           <a href="../" className="logo">freeapphosting.net</a>
+           <a href="../../help">Help</a>
+           <a href="https://freeapphosting1.statuspage.io/">Status</a>
            <a onClick={logout()} className="dashboardBtn">Logout</a>
         </div>
 

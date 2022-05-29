@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 import { useState, useEffect } from 'react';
+import { Router, useRouter } from 'next/router';
 
 /*
   <select style={{marginLeft: '1rem', background: 'white'}}>
@@ -74,6 +75,8 @@ export default function ({client, gh, auth}){
         }
     }
     
+    const router = useRouter();
+
     async function launch(){
         axios.get('https://api.freeapphosting.net/api/apps/create'
             +'?owner='+client+''
@@ -86,7 +89,12 @@ export default function ({client, gh, auth}){
             , auth).then(resp => {
                 console.log(resp.data);
                 setStatus(resp.data.statusMessage);
+                if(resp.data.status==true){
+                    router.push('../../dashboard/home')
+                }
         });
+
+    
     }
 
     function show(){
@@ -125,7 +133,7 @@ export default function ({client, gh, auth}){
                     }
                 })}
                 <br/>
-                <small>Only showing public repos, you can still use private repos.</small>
+                <small>For privacy, only public repos are shown. Private repos are still available.</small>
                 <br/>
                 <a className="gray-button" onClick={disable}>Close</a>
                 
@@ -152,6 +160,7 @@ export default function ({client, gh, auth}){
             <br/>
             <br/>
 
+            <p>{status}</p>
             <a onClick={ ()=>{ deploy() }}className="github-deploy">🚀 Deploy App</a>
 
 

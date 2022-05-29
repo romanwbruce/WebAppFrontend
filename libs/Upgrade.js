@@ -16,6 +16,12 @@ export default function(){
                 <li>
                     <img width='16px' src="/images/correct.png"/>Up to 10 Projects
                 </li>
+                <li>
+                    <img width='16px' src="/images/correct.png"/>Custom Domain
+                </li>
+                <li>
+                    <img width='16px' src="/images/correct.png"/>HTTPs and SSL
+                </li>
             </ul>
         </div>
     )

@@ -19,11 +19,11 @@ export default function Index() {
               <div className="together">
                   <input placeholder="Project-name" type="text" />
                   <select>
-                    <option>.freeapphosting.co</option>
+                    <option>Container 1u - Free</option>
                   </select>
               </div>
               <div className="deploy">
-                <a className="github-deploy">Continue with Github</a>
+                <a href="create-account" className="github-deploy">Continue</a>
               </div>
           </div>
         </div>
@@ -31,11 +31,11 @@ export default function Index() {
         <div className="features">
             <div className="feature">
                 <h3>Free To Use</h3>
-                <p>Our service is free to use, forever.</p>
+                <p>Our service is free to use, forever. Including a free domain.</p>
             </div>
             <div className="feature">
-                <h3>Manage Many Deployments</h3>
-                <p>Deploy up to three projects for free.</p>
+                <h3>Powerful</h3>
+                <p>We use the latest enterprise grade servers to host your projects.</p>
             </div>
             <div className="feature">
                 <h3>We Make It Easy</h3>

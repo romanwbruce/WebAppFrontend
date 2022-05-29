@@ -99,18 +99,17 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
         <div>
             <DashboardHeader></DashboardHeader>
 
-        <p className="welcome">Welcome back, {signer}</p>
         {
             !isGithubAuthorized &&
             <a href={"https://api.freeapphosting.net/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
         }
 <div className="dashboard">
                 <div className="projects">
-                    <h2>My Apps</h2>
+                    <h2>Dashboard</h2>
                     <div className="optionsParent">
                         <div className="options">
                             <a onClick={ ()=> setTab(0) } className={ tab == 0 ? 'active' : ''}>Apps</a>
-                            <a onClick={ ()=> setTab(1) } className={ tab == 1 ? 'active' : ''}>New App</a>
+                            <a onClick={ ()=> setTab(1) } className={ tab == 1 ? 'active' : ''}>Create New App</a>
                             {
                                  !isGithubAuthorized &&
                                  <a href="">Link GitHub Account</a>
@@ -138,7 +137,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
                     <News/>
                 </div>
                 </div>
-                <small className="lastLogin">Last login: { moment.unix(signedOn/1000).fromNow() }</small>
+                <small className="date lastLogin">Last login: { moment.unix(signedOn/1000).fromNow() }</small>
             <DashboardFooter></DashboardFooter>
         </div>
     
