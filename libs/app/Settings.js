@@ -10,7 +10,7 @@ export default function ({auth}){
 
     useEffect( ()=>{
         console.log('appid: '+name);
-        axios.get("api.freeapphosting.net/api/apps/settings?appID="+name, auth).then(response2 =>{
+        axios.get("https://api.freeapphosting.net/api/apps/settings?appID="+name, auth).then(response2 =>{
             setSettings(response2.data.data);
             console.log(settings);
          });

@@ -9,7 +9,7 @@ export default function ({auth}){
     const { name } = router.query;
 
     useEffect( ()=>{
-        axios.get("api.freeapphosting.net/api/apps/logs?appID="+name, auth).then(response2 =>{
+        axios.get("https://api.freeapphosting.net/api/apps/logs?appID="+name, auth).then(response2 =>{
             console.log(response2.data.data.log);
            setLog(response2.data.data.log);
          })

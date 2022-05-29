@@ -27,7 +27,7 @@ export async function getServerSideProps({ req, res }) {
         }
     }
 
-    await axios.get("api.freeapphosting.net/api/github/user?username="+req.cookies.signer, headers).then(response =>{
+    await axios.get("https://api.freeapphosting.net/api/github/user?username="+req.cookies.signer, headers).then(response =>{
        isGithubAuthorized = response.data.status;
        github = response.data;
        error = false;
@@ -37,7 +37,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
 
-    await axios.get("api.freeapphosting.net/api/apps/user?user="+req.cookies.signer, headers).then(response2 =>{
+    await axios.get("https://api.freeapphosting.net/api/apps/user?user="+req.cookies.signer, headers).then(response2 =>{
     
         apps = response2.data;
         console.log(apps);
@@ -102,7 +102,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
         <p className="welcome">Welcome back, {signer}</p>
         {
             !isGithubAuthorized &&
-            <a href={"api.freeapphosting.net/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
+            <a href={"https://api.freeapphosting.net/api/github/auth?username="+signer} className="err" style={{textAlign: 'center'}}>Click here to link your GitHub account.</a>
         }
 <div className="dashboard">
                 <div className="projects">
@@ -128,7 +128,7 @@ export default function Home({ token, signedOn, signer, isGithubAuthorized, gith
                     {   !isGithubAuthorized && tab ==1 &&
                         <div>
                             <br/>
-                            <a href={"api.freeapphosting.net/api/github/auth?username="+signer} className="err">Use must link github before deploying an app.</a>
+                            <a href={"https://api.freeapphosting.net/api/github/auth?username="+signer} className="err">Use must link github before deploying an app.</a>
                         </div>
                     }
 
