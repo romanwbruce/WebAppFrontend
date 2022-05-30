@@ -110,10 +110,10 @@ export default function ({client, gh, auth}){
             <p>Project name</p>
             <input onChange={setAppName} placeholder="Project-name" type="text" />
             <br/>
-            <p>Choose domain</p>
+            <p>Subdomain</p>
             <input onChange={setAppDomain} placeholder="Domain" type="text" />
             <select>
-                <option>.freeapphosting.co</option>
+                <option>.freeapphosting.net</option>
             </select>
             <p>Choose repo</p>
             <a className="running"><img style={{borderRadius: '30px' }}width="32px" src={profile.avatar_url} />{profile.login}       
@@ -133,7 +133,6 @@ export default function ({client, gh, auth}){
                     }
                 })}
                 <br/>
-                <small>For privacy, only public repos are shown. Private repos are still available.</small>
                 <br/>
                 <a className="gray-button" onClick={disable}>Close</a>
                 

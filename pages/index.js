@@ -41,6 +41,11 @@ export default function Index() {
                 <h3>We Make It Easy</h3>
                 <p>Select a project repo and deploy your web app in seconds.</p>
             </div>
+            <div className="feature">
+                <h3>Free Support</h3>
+                <p>Join our discord to get free and extensive support!</p>
+                <a href="https://discord.gg/yK2B2SJymW">[Official Discord]</a>
+            </div>
         </div>
         <Footer></Footer>
     </div>

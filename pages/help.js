@@ -10,7 +10,7 @@ export default function Help(){
                 <div>
                         <a>Page coming soon</a>
                         <p>This page is under development, please join our discord for help.</p>
-                        <a href="discord.freeapphosting.net">Discord</a>
+                        <a href="https://discord.gg/yK2B2SJymW">Discord</a>
                       
                 </div>
            </div>

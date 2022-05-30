@@ -20,6 +20,9 @@ export default function(){
                     <img width='16px' src="/images/correct.png"/>Custom Domain
                 </li>
                 <li>
+                    <img width='16px' src="/images/correct.png"/>Private Repos
+                </li>
+                <li>
                     <img width='16px' src="/images/correct.png"/>HTTPs and SSL
                 </li>
             </ul>

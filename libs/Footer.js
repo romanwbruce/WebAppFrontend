@@ -13,7 +13,7 @@ export default function(){
             </ul>
             <ul className="footerSection">
                 <li><a>Links</a></li>
-                <li><a>Discord</a></li>
+                <li><a href="https://discord.gg/yK2B2SJymW">Discord</a></li>
             </ul>
         </div>
     )
