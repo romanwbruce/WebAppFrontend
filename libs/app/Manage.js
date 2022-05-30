@@ -81,7 +81,7 @@ export default function ({ setRealName, auth }){
     function restart(){
         setLoading(true);
         console.log('restarting...');
-        axios.post("https://api.freeapphosting.net/api/apps/functions/restart?appID="+name).then(_data =>{
+        axios.post("https://api.freeapphosting.net/api/apps/functions/restart?appID="+name, {}, auth).then(_data =>{
           console.log(_data);
          });
     }
@@ -89,7 +89,7 @@ export default function ({ setRealName, auth }){
     function stop(){
         setLoading(true);
         console.log('stopping...');
-        axios.post("https://api.freeapphosting.net/api/apps/functions/stop?appID="+name).then(_data =>{
+        axios.post("https://api.freeapphosting.net/api/apps/functions/stop?appID="+name, {}, auth).then(_data =>{
           console.log(_data);
          });
     }
