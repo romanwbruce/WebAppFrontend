@@ -10,6 +10,7 @@ import Console from '../../libs/app/Console';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import InvalidCredentials from '../../libs/auth/InvalidCredentials';
+import Head from 'next/head';
 export async function getServerSideProps({ req, res }) {
   var headers = {};
   if(req.cookies.signer  != null){
@@ -47,6 +48,10 @@ export default function App({headers}) {
     window.location.reload(false);
   }
 
+  function visit_site(){
+    router.push('http://'+realName);
+  }
+
   useEffect( ()=>{
     if(Cookies.get('clientToken') == null){
      setBounce(true);
@@ -63,12 +68,22 @@ export default function App({headers}) {
         <div>
         <DashboardHeader/> 
       <div className="dashboard">
+      <Head>
+                <title>Free App Hosting - {realName}</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" type="image/x-icon" href="/images/project.png"/>
+            </Head>
                       <div className="projects">
                       <a href="../dashboard/home" className="return">Dashboard</a>
 
                           <h2>{realName} <a onClick={refresh}className='twirl'>
                             <img width='16px' src='/images/refresh.png'></img>
-                            </a></h2>
+                            </a>
+                            <a onClick={visit_site} style={{marginLeft: '.4rem'}}className='twirl'>
+                            <img width='16px' src='/images/world-wide-web.png'></img>
+                            </a>
+                            
+                            </h2>
 
                           <div className="optionsParent">
                               <div className="options">

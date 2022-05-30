@@ -169,12 +169,17 @@ input{
   background: #b91a1a3e;
   border: 1px solid #a91616;
   color: rgb(79, 0, 0);
-  padding: .4rem;
+  padding: .6rem;
   border-radius: 5px;
   display: flex;
   align-items: left;
   margin-bottom: 1rem;
   flex-direction: column;
+
+  background-image: url('/images/warning.png');
+  background-size: 64px;
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 
 .err small{
@@ -185,15 +190,20 @@ input{
 }
 .static{
   color: black;
-  padding: .4rem;
+  padding: .6rem;
   border-radius: 5px;
   display: flex;
   align-items: left;
   flex-direction: column;
-  background: #d2d2d20f;
+  background: #fafafa0f;
   border: 1px solid #9f9f9f;
   
   margin-bottom: 1rem;
+
+  background-image: url('/images/danger.png');
+  background-size: 64px;
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 .static small{
   margin-top: .4rem;
@@ -367,7 +377,7 @@ margin-right: auto;
 }
 
 .optionsParent{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(37, 37, 37);
 }
 
 .options a{
@@ -378,7 +388,8 @@ margin-right: auto;
 }
 
 .active{
-  border-bottom: 3px solid black;
+  transition: 200ms;
+  border-bottom: 2px solid black;
 }
 
 .project{
@@ -569,9 +580,8 @@ padding: .5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
 
-  border-radius: 15px;
+  border-radius: 5px;
   background: #69b5493e;
   border: 1px solid #58a637;
 }
@@ -667,7 +677,6 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: max-content;
 }
 
 .usage {
@@ -687,26 +696,29 @@ a{
 .usage pre{
   margin: 0;
   padding: .4rem;
+  padding-top: .8rem;
 
   font-size: 24px;
 
   text-align: center;
+
+  font-family: lex;
 }
 
 .usage a{
   font-size: 12px;
-  font-weight: bold;
+  font-family: light;
 }
 
 .usageLabel{
   margin: .4rem;
   font-size: 12px;
   text-align: center;
-  font-weight: bold;
   padding: .2rem;
   border-radius: 2px;
   font-size: 13px;
   color: black;
+  font-family: lex;
 }
 
 .spinner_{

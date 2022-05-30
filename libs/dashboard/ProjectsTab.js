@@ -9,7 +9,7 @@ export default function ({empty, apps}){
                                 empty &&
                                 <div>
                                     <div className="barren">
-                                        <h2>No apps. Create one!</h2>
+                                        <h3>No apps, create one for free!</h3>
                                     </div>
                                 </div>
                             }

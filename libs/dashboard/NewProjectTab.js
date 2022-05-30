@@ -21,16 +21,16 @@ export default function ({client, gh, auth}){
 
     const [status, setStatus] = useState('');
     const [owner, setOwner] = useState('');
+    const [profile, setProfile] = useState([]);
     const [repos, setRepos] = useState([]);
     const [showRepos, setShowRepos] = useState(false);
 
     const [av, setAV] = useState('/images/github.png');
 
     useEffect( ()=>{
-        console.log(gh.data.items[0]);
-        setOwner(gh.data.items[0].owner.login);
-        setRepos(gh.data.items);
-        setAV(gh.data.items[0].owner.avatar_url);
+                setOwner(gh.profile.login);
+                setRepos(gh.data.items);
+                setProfile(gh.profile);
     }, []);
 
     function setPullRepo(e){
@@ -116,12 +116,12 @@ export default function ({client, gh, auth}){
                 <option>.freeapphosting.co</option>
             </select>
             <p>Choose repo</p>
-            <a className="running"><img style={{borderRadius: '30px' }}width="32px" src={av} />{owner}       
+            <a className="running"><img style={{borderRadius: '30px' }}width="32px" src={profile.avatar_url} />{profile.login}       
             <div>
     
           
             <input onClick={show} style={{marginLeft: '1rem'}} onChange={setPullRepo} placeholder='Type repo name here'></input>
-                {showRepos &&
+                {showRepos && repos != undefined &&
                 <ul className='_dropdown'>
                 {repos.map( (val, i) => {
                     if(val.name.includes(repo)){

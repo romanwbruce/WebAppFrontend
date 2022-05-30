@@ -122,10 +122,7 @@ export default function ({ setRealName, auth }){
                 <pre>{activity.memUsage}</pre>
                     <p className="usageLabel">Memory Usage</p>
                 </div>
-                <div className="usage">
-                    <pre>{activity.networkUsage}</pre>
-                    <p className="usageLabel">Network Usage</p>
-                </div>
+       
                     </div>
                 }
                 {
